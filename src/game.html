@@ -52,8 +52,35 @@
             )
         }
 
+        function Board(props){
+            var rows = []
+            for(let i = 5; i >= 0; i--){
+                rows.push(<Row/>)
+            }
+            return (
+                <div>
+                    {rows}
+                </div>
+            )
+        }
+
+        class Game extends React.Component{
+            constructor(props){
+                super(props)
+            }
+            render(){
+                return (
+                    <div>
+                        <h1>Blacks Turn</h1>
+                        <Board/>
+                        <button>Restart</button>
+                    </div>
+                )
+            }
+        }
+
         ReactDOM.render(
-            <Row/>,
+            <Game/>,
             document.getElementById('root')
         )
          
