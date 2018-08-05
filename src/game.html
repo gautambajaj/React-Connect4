@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+       <meta charset="UTF-8">
+       <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+       <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+
+  </head>
+  <body>
+      <div id="root"></div>
+      <script type="text/babel">
+        function Circle(props){
+            var style = {
+                backgroundColor:"white",
+                border: "1px solid black",
+                borderRadius: "100%",
+                paddingTop: "98%"
+            }
+            return (
+               <div style = {style}></div>
+            )
+        }
+
+        function Cell(props){
+            var style = {
+                height:50,
+                width:50,
+                border:"1px solid black",
+                backgroundColor:"yellow"
+            }
+
+            return (
+                <div style = {style}>
+                    <Circle/>
+                </div>
+            )
+        }
+
+        function Row(props){
+            var style = {
+                  display: "flex"
+            }
+            var cells = []
+            for(let i = 0; i < 7; i++){
+                cells.push(<Cell/>)
+            }
+            return (
+                <div style = {style}>
+                    {cells}
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <Row/>,
+            document.getElementById('root')
+        )
+         
+      </script> 
+  </body>
+</html>
